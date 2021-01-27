@@ -1,0 +1,104 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>NoteApp - Giriş</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/content/assets/css/main.css" />
+    <link rel="stylesheet" href="/content/assets/css/login.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="logo">
+                <span class="icon fa-file-o"></span>
+            </div>
+            <div class="content">
+                <div class="inner">
+                    <h1>NoteApp</h1>
+                    <p>
+                        Öğrenci arkadaşlarımızın kendi notlarını paylaşıp<br />
+                        başka öğrenci arkadaşların notlarını indirip kullanabileceği bir platform !
+                    </p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#giris">Giriş</a></li>
+                    <li><a href="#kayit">Kaydol</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main -->
+        <div id="main">
+
+            
+            <article id="giris">
+                <center><h2 class="major">Giriş</h2></center>
+                <div id="login">
+                    <form name='form-login' action="/Home/Login" method="post" >
+                        <input type="text" name="kullanicimail" placeholder="E-Mail">
+                        <input type="password" name="sifre" placeholder="Şifre">
+                        <input type="submit" value="Giriş">
+                    </form>
+                </div>
+
+            </article>
+            <article id="kayit">
+                <center><h2 class="major">Kaydol</h2></center>
+                <div id="login">
+                    <form name='form-login' action="/Home/Kayit" method="post">
+                        <input type="text" name="mail" placeholder="Öğrenci E-Mail adresiniz(Üniversiteniz)">
+                        <input type="password" name="sifre" placeholder="Şifreniz">
+                        <input type="text" name="adsoyad" placeholder="Ad - Soyad">
+                        <select name="universiteniz">
+                            <option value="Sakarya">Sakarya Üniversitesi</option>
+                            <option value="IstanbulUni">İstanbul Üniversitesi</option>
+                            <option value="KocaeliUni">Kocaeli Üniversitesi</option>
+                        </select>
+                        <select name="bolum">
+                            <option value="BilisimSistemleri">Bilişim Sistemleri Müh.</option>
+                            <option value="BilgisayarMuh">Bilgisayar Müh.</option>
+                            <option value="InsaatMuh">İnşaat Müh.</option>
+                        </select>
+                        
+                        <input type="submit" value="Kaydol">
+                    </form>
+                </div>
+
+
+            </article>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright"> Kenan Telyakar & Harun Suljagic</a>.</p>
+        </footer>
+
+    </div>
+
+    <!-- BG -->
+    <div id="bg"></div>
+
+    <!-- Scripts -->
+    <script src="/content/assets/js/jquery.min.js"></script>
+    <script src="/content/assets/js/skel.min.js"></script>
+    <script src="/content/assets/js/util.js"></script>
+    <script src="/content/assets/js/main.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="../images/favicon.ico">
+
+  <title>NoteApp - Ders notu paylaşın ve indirin.</title>
+  <link rel="stylesheet" href="~/content/assets/css/notEkle.css" />
+  <link href="../content/lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+  <link href="../content/lib/Ionicons/css/ionicons.css" rel="stylesheet">
+  <link href="../content/lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+
+  <link href="../content/css/blockbox.css" rel="stylesheet">
+</head>
+
+<body class="dashboard-5 bg-gray-dark-light tx-size-13">
+
+  <div class="leftpanel bg-inverse bd-r bd-color-gray-dark-light pos-fixed-left wd-240 z-index-50 hidden-md-down">
+    <div class="pos-absolute-top bg-inverse ht-60 ht-lg-70 d-flex align-items-center pd-x-25 bd-b bd-color-gray-dark-light">
+      <h5 class="tx-size-22 tx-bold tx-spacing-neg-1 mg-b-0"><a href="../App" class="tx-white"><i class="fa fa-file-o tx-info mg-r-2"></i> Note <span class="tx-gray-light tx-normal">app</span></a></h5>
+    </div>
+
+    <div class="left-list pos-absolute t-60 t-lg-70 r-0 b-0 l-0 overflow-y-auto">
+      <div class="pd-10 hidden-md-up">
+        
+      </div>
+      <div class="pd-x-25 pd-t-25">
+        <h6 class="tx-info tx-size-11 tx-uppercase tx-spacing-2">Menü</h6>
+      </div>
+      <ul class="nav nav-outline-vertical nav-gray-light flex-column wd-100p">
+        <li class="nav-item">
+          <a href="/App/NotEkle" class="nav-link pd-x-25">
+            <div class="d-flex align-items-center">
+              <i class="icon ion-ios-albums-outline tx-size-32 lh-0 mg-r-10"></i>
+              <span class="mg-r-auto">Not Ekle</span>            
+            </div>
+          </a>
+          
+        </li>
+        <li class="nav-item">
+          <a href="/App/Notlarim" class="nav-link pd-x-25">
+            <div class="d-flex align-items-center">
+              <i class="icon ion-ios-albums-outline tx-size-32 lh-0 mg-r-10"></i> Notlarım
+            </div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/App/BaskaNotlar" class="nav-link pd-x-25">
+            <div class="d-flex align-items-center">
+              <i class="icon ion-ios-albums-outline tx-size-32 lh-0 mg-r-10"></i> Başka Notlar
+            </div>
+          </a>
+        </li>
+        
+      </ul>
+
+     
+
+      <div class="wd-100p pd-25">
+       
+      </div>
+    </div>
+  </div><!-- leftpanel -->
+
+  <!-- start: menu for mobile only -->
+  <div class="mobile-head pos-fixed-top bg-inverse z-index-200 pd-x-20 l-lg-240 bd-b bd-color-gray-dark-light ht-60 ht-lg-70 d-flex justify-content-between align-items-center hidden-xl-up">
+    <a id="showLeftMenu" href="" class="tx-gray-light lh-0"><i class="fa fa-navicon tx-size-18"></i></a>
+    <h5 class="tx-size-18 tx-size-lg-22 tx-bold tx-spacing-neg-1 mg-b-0 hidden-lg-up"><a href="../templates/demo.html" class="tx-white"><i class="fa fa-music tx-info mg-r-2"></i> Note <span class="tx-gray tx-normal">App</span></a></h5>
+    <a id="showRightMenu" href="" class="tx-gray-light lh-0"><i class="fa fa-user-circle-o tx-size-18"></i></a>
+  </div>
+  <!-- end: menu for mobile only -->
+
+  <div class="main pos-lg-absolute pos-xl-fixed t-0 l-0 l-lg-240 r-0 r-xl-240 b-0 z-index-100 pd-t-60 pd-lg-t-70 pd-xl-t-0">
+    <div class="main-header pos-xl-absolute-top bg-inverse ht-sm-70 pd-x-20 pd-t-20 pd-sm-t-0 d-flex align-items-start align-items-sm-center justify-content-between bd-b bd-color-gray-dark-light">
+      <input type="text" class="form-control form-control-inverse bd-color-gray-dark-light bd-r-0-force" placeholder="Not ara..." aria-label="Not ara...">
+        <span class="input-group-btn">
+          <button class="btn btn-inverse tx-gray pd-x-15 bd-color-gray-dark-light bd-l-0-force" type="button"><i class="fa fa-search"></i></button>
+        </span>
+      
+    </div>
+    <div class="main-menu pos-xl-absolute t-70 r-0 l-0 ht-60 shadow-base bg-inverse pd-l-15 pd-r-10 d-flex align-items-center justify-content-between hidden-sm-down">
+     
+      <div class="input-group wd-md-200 wd-lg-250 mg-t-20 mg-md-t-0">
+        
+      </div><!-- input-group -->
+    </div>
+<!--layout kısmı-->
+    @RenderBody()
+    </div><!-- main-body -->
+  </div><!-- main -->
+
+  <div class="rightpanel bg-inverse bd-l bd-color-gray-dark-light pos-fixed-right wd-240 overflow-y-auto z-index-50 hidden-lg-down">
+    <div class="tx-center pd-y-25">
+      <img src="http://via.placeholder.com/600x600" class="wd-100 rounded-circle" alt="">
+      <h6 class="tx-white mg-t-15 mg-b-2 tx-normal">@Session["AdSoyad"]</h6>
+      <p class="mg-b-10">@Session["Universite"]</p>
+        <p class="mg-b-10">@Session["Bolum"]</p>
+        <p class="mg-b-10">Kullanıcı</p>
+      <p class="pd-x-15 mg-b-5"></p>
+
+      <nav class="nav tx-size-18 justify-content-center">
+        
+      </nav>
+    </div>
+
+    <div class="row no-gutters">
+      <div class="col">
+        <div class="pd-y-15 tx-center bd-y bd-color-gray-dark-light">
+          <i class="icon ion-android-folder tx-size-32 lh-0"></i>
+          <h4 class="tx-white mg-t-10 mg-b-2">*</h4>
+          <p class="mg-b-0 tx-size-10 tx-spacing-2 tx-uppercase">Eklenen Notlar</p>
+        </div><!-- pd-10 -->
+      </div><!-- col -->
+      <div class="col bd-l bd-color-gray-dark-light">
+        <div class="pd-y-15 tx-center bd-y bd-color-gray-dark-light">
+          <i class="icon ion-android-download tx-size-32 lh-0"></i>
+          <h4 class="tx-white mg-t-10 mg-b-2">*</h4>
+          <p class="mg-b-0 tx-size-10 tx-spacing-2 tx-uppercase">Indirme</p>
+        </div><!-- pd-10 -->
+      </div><!-- col -->
+    </div><!-- row -->
+      
+    <div class="pd-x-25 pd-t-25">
+      <h6 class="tx-info tx-size-11 tx-uppercase tx-spacing-2">User Menu</h6>
+      <nav class="nav nav-gray-light flex-column">
+
+        <a href="/Home/Logout" class="nav-link pd-x-0">
+          <div class="d-flex align-items-center">
+            <i class="icon ion-power tx-size-20 lh-0 mg-r-10 tx-gray-light"></i> Çıkış Yap
+          </div>
+        </a>
+      </nav>
+      <br>
+    </div>
+  </div><!-- rightpanel -->
+
+
+
+
+  <script src="../content/lib/jquery/jquery.js"></script>
+  <script src="../content/lib/tether/tether.js"></script>
+  <script src="../content/lib/bootstrap/bootstrap.js"></script>
+  <script src="../content/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+  <script src="../content/lib/modernizr/modernizr.js"></script>
+
+  <script src="../content/js/blockbox.js"></script>
+  <script src="../content/js/blockbox.demo.js"></script>
+  <script>
+    $(function(){
+      'use strict';
+
+      $('.left-list, .main-body, .rightpanel').perfectScrollbar();
+
+      // show/hide left menu
+      $('#showLeftMenu').on('click', function(){
+        $('body').removeClass('show-right');
+
+        if($('body').hasClass('show-left')) {
+          $('body').removeClass('show-left');
+          $('.leftpanel').addClass('hidden-md-down');
+        } else {
+          $('body').addClass('show-left');
+          $('.leftpanel').removeClass('hidden-md-down');
+        }
+        return false;
+      });
+
+      // show/hide right menu
+      $('#showRightMenu').on('click', function(){
+        $('body').removeClass('show-left');
+
+        if($('body').hasClass('show-right')) {
+          $('body').removeClass('show-right');
+          $('.rightpanel').addClass('hidden-lg-down');
+        } else {
+          $('body').addClass('show-right');
+          $('.rightpanel').removeClass('hidden-lg-down');
+        }
+        return false;
+      });
+    });
+  </script>
+</body>
+</html>

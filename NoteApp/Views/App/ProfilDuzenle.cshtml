@@ -1,0 +1,61 @@
+﻿@model NoteApp.Models.MultiModel
+@{
+    ViewBag.Title = "ProfilDuzenle";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+<div class="main-body pos-xl-absolute t-130 r-0 b-0 l-0 overflow-y-auto">
+    <div class="ht-250 bg-inverse announcement pos-relative bd-b bd-color-gray-dark-light">
+        <img src="~/content/images/solo.png" class="wd-100p ht-100p object-fit-cover" alt="">
+        <div class="overlay-block bg-opacity-inverse-7 pd-25 d-flex align-items-end">
+            <div>
+                <h2 class="tx-white">Profil Düzenle</h2>
+                <p class="tx-white op-2">Aşağıdaki bilgileri eksiksiz doldurunuz</p>
+
+            </div>
+        </div><!-- overlay-block -->
+
+    </div><!-- announcement -->
+
+    <div class="pd-25">
+        <div class="d-flex align-items-center justify-content-between">
+            <h6 class="tx-size-12 tx-size-sm-14 tx-white tx-uppercase tx-spacing-2 mg-b-0"></h6>
+
+        </div>
+        @ViewBag.Message
+        <hr class="mg-y-25 bd-color-gray">
+        
+        <div id="login">
+            <form  action="/App/ProfilDuzenle" method="post">
+                <input type="password" name="sifreNow" placeholder="Şuanki Şifreniz" required>
+                <input type="text" name="mail" placeholder="Öğrenci Mail Adresiniz(.edu.tr)" value="@Html.DisplayFor(x=>x.User.user_mail)" disabled />
+                <input type="password" name="sifre" placeholder="Şifreniz"  required>
+                <input type="text" name="adsoyad" placeholder="Ad - Soyad" value="@Html.DisplayFor(x=>x.User.user_adsoyad)" required>
+                
+                <select name="universite" >
+                    @foreach (var item in Model.Universite)
+                    {
+                        <option value="@Html.DisplayFor(modelItem => item.universiteAd)">
+                            @Html.DisplayFor(modelItem => item.universiteAd)
+                        </option>
+                    }
+                    <option selected>@Html.DisplayFor(x=>x.User.user_universite)</option>
+                </select>
+                <select name="bolum">
+                    @foreach (var item in Model.Bolumler)
+                    {
+                        <option value="@Html.DisplayFor(modelItem => item.bolumAd)">
+                            @Html.DisplayFor(modelItem => item.bolumAd)
+                        </option>
+                    }
+                    <option selected>@Html.DisplayFor(x => x.User.user_bolum)</option>
+                </select>
+                <input type="submit" value="Guncelle">
+            </form>
+            
+        </div>
+
+
+
+    </div><!-- row -->
+</div><!-- main -->

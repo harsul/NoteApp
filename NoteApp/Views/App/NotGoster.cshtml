@@ -1,0 +1,42 @@
+﻿@model NoteApp.Models.MultiModel
+@{
+    ViewBag.Title = "NotGoster";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+<div class="main-body pos-xl-absolute t-130 r-0 b-0 l-0 overflow-y-auto">
+    <div class="ht-250 bg-inverse announcement pos-relative bd-b bd-color-gray-dark-light">
+        <img src="~/content/images/solo.png" class="wd-100p ht-100p object-fit-cover" alt="">
+        <div class="overlay-block bg-opacity-inverse-7 pd-25 d-flex align-items-end">
+            <div>
+                @{ var DersBilgi = Model.NotAlbum.Select(x => new
+                    {
+                        dersad = x.albumDersAdi,
+                        dershoca = x.albumHoca
+                    }).FirstOrDefault();
+                }
+                <h2 class="tx-white">@Html.DisplayFor(x => DersBilgi.dersad)</h2>
+                <p class="tx-white op-2">@Html.DisplayFor(x => DersBilgi.dershoca)</p>
+            </div>
+        </div><!-- overlay-block -->
+    </div><!-- announcement -->
+
+    <div class="pd-25">
+        <div class="d-flex align-items-center justify-content-between">
+            <h6 class="tx-size-12 tx-size-sm-14 tx-white tx-uppercase tx-spacing-2 mg-b-0">Resimler</h6>
+        </div>
+        <hr class="mg-y-25 bd-color-gray">
+        <div class="row">
+
+            @foreach (var item in Model.NotResim)
+            {
+                <div class="col-sm-6 col-lg-3">
+                    <img src="@Html.DisplayFor(x=> item.resimYol)" class="img-fluid rounded" alt="">
+                </div><!-- col-3 -->
+            }
+
+        </div><!-- row -->
+    </div>
+</div><!-- main -->
+
+

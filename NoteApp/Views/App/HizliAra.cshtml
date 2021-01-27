@@ -1,0 +1,48 @@
+﻿@model NoteApp.Models.MultiModel
+@{
+    ViewBag.Title = "HizliAra";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+<div class="main-body pos-xl-absolute t-130 r-0 b-0 l-0 overflow-y-auto">
+    <div class="ht-250 bg-inverse announcement pos-relative bd-b bd-color-gray-dark-light">
+        <img src="~/content/images/solo.png" class="wd-100p ht-100p object-fit-cover" alt="">
+        <div class="overlay-block bg-opacity-inverse-7 pd-25 d-flex align-items-end">
+            <div>
+                <h2 class="tx-white">Aranılan Notlar</h2>
+                <p class="tx-white op-2">Aradığınız Notlar Aşağıda Listelenmiştir.</p>
+
+            </div>
+        </div><!-- overlay-block -->
+    </div><!-- announcement -->
+
+    <div class="pd-25">
+        <div class="d-flex align-items-center justify-content-between">
+            <h6 class="tx-size-12 tx-size-sm-14 tx-white tx-uppercase tx-spacing-2 mg-b-0"></h6>
+        </div>
+        <hr class="mg-y-25 bd-color-gray">
+        <div class="row">
+
+            @foreach (var item in Model.NotAlbum)
+            {
+                var yol = Model.NotResim.Where(d => d.albumID == item.albumID).Select(x => new
+                {
+                    resimYol = x.resimYol
+                }).FirstOrDefault();
+                <div class="col-sm-6 col-lg-3">
+                    <h6 class="tx-size-14 tx-normal mg-t-15 mg-b-5">
+                        <a href="/App/NotGoster?ID=@Html.DisplayFor(modelItem => item.albumID)" class="tx-white">
+                            <img src="@Html.DisplayFor(x=> yol.resimYol)" class="img-fluid rounded" alt="">
+                            <center> @Html.DisplayFor(modelItem => item.albumDersAdi)</center>
+                        </a>
+                    </h6>
+                    <center>
+                        <p class="mg-b-5">@Html.DisplayFor(modelItem => item.albumHoca)</p>
+                        <span class="tx-gray-light">@Html.DisplayFor(modelItem => item.goruntulenme) Görüntülenme</span>
+                    </center>
+                </div><!-- col-3 -->
+            }
+
+        </div><!-- row -->
+    </div>
+
+</div><!-- main -->
